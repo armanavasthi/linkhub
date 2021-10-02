@@ -1,0 +1,22 @@
+server:
+  port: 6060
+
+spring:
+  application:
+    name: location
+  profiles:
+    active: h2 #always use profile 'test' to pass github pr build. Locally 'local' can be used
+  datasource:
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
